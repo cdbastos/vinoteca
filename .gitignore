@@ -16,7 +16,7 @@ auth.json
 npm-debug.log
 yarn-error.log
 ray.php
-./docker
+/docker
 /.fleet
 /.idea
 /.vscode
