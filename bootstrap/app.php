@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Inspector\Laravel\Middleware\WebRequestMonitoring;
+use Sentry\Laravel\Integration;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -18,5 +19,6 @@ return Application::configure(basePath: dirname(__DIR__))
             ->appendToGroup('api', WebRequestMonitoring::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        //sentry
+        Integration::handles($exceptions);
     })->create();
