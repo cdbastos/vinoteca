@@ -1,9 +1,17 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    $user = \App\Models\User::get();
+
+    $sessions  = DB::query()->from('sessions')->get();
+
+    ray('Users:',$user, 'Sessions:',$sessions);
+
+
     return view('welcome');
 });
 
